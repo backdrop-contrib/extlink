@@ -21,7 +21,7 @@ function extlink_menu() {
 function extlink_preprocess_page(&$variables) {
   $path = backdrop_get_path('module', 'extlink');
   $config = config('extlink.settings');
-  backdrop_add_js($path .'/extlink.js', array('every_page' => TRUE));
+  backdrop_add_js($path .'/js/extlink.js', array('every_page' => TRUE));
   backdrop_add_js(array('extlink' => array(
     'extTarget'     => $config->get('target'),
     'extClass'      => $config->get('class'),
@@ -60,7 +60,7 @@ function extlink_admin_settings() {
     '#title' => t('Place an icon next to external links.'),
     '#return_value' => 'ext',
     '#default_value' => $config->get('class'),
-    '#description' => t('Places an !icon icon next to external links.', array('!icon' => theme('image', array('path' => backdrop_get_path('module', 'extlink') . '/extlink.png', 'alt' => t('External Links icon'))))),
+    '#description' => t('Places an !icon icon next to external links.', array('!icon' => theme('image', array('path' => backdrop_get_path('module', 'extlink') . '/images/extlink.png', 'alt' => t('External Links icon'))))),
   );
 
   $form['extlink_mailto_class'] = array(
@@ -68,7 +68,7 @@ function extlink_admin_settings() {
     '#title' => t('Place an icon next to mailto links.'),
     '#return_value' => 'mailto',
     '#default_value' => $config->get('mailto_class'),
-    '#description' => t('Places an !icon icon next to mailto links.', array('!icon' => theme('image',array('path' => backdrop_get_path('module', 'extlink') . '/mailto.png', 'alt' => t('Email links icon'))))),
+    '#description' => t('Places an !icon icon next to mailto links.', array('!icon' => theme('image',array('path' => backdrop_get_path('module', 'extlink') . '/images/mailto.png', 'alt' => t('Email links icon'))))),
   );
 
   $form['extlink_img_class'] = array(
