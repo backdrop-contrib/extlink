@@ -5,6 +5,13 @@ The External Links module is a very simple approach to adding icons to links to
 external websites or e-mail addresses. It is a purely JavaScript implementation,
 so the icons are only shown to users that have JavaScript enabled.
 
+Other features:
+
+- Open all external links in a new window.
+
+- Display a custom warning message in pop-up when a user clicks on an 
+  external link.
+
 Installation
 ------------
 
