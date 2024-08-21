@@ -1,20 +1,25 @@
-span.ext {
-  background: url('../images/extlink_s.png') 2px center no-repeat;
-  width: 10px;
-  height: 10px;
-  padding-right: 12px;
+span.ext,
+span.mailto {
+  background-image: none;
+  mask-size: 12px;
+  mask-repeat: no-repeat;
+  mask-position: center right;
+  background-color: currentColor;
+  padding-right: 15px;
   text-decoration: none;
 }
+
+span.ext {
+  mask-image: var(--icon-arrow-up-right);
+}
+
 span.mailto {
-  background: url('../images/extlink_s.png') -20px center no-repeat;
-  width: 10px;
-  height: 10px;
-  padding-right: 12px;
-  text-decoration: none;
+  mask-image: var(--icon-envelope);
 }
 
 /* Hide the extra spans when printing. */
 @media print {
+
   span.ext,
   span.mailto {
     display: none;
