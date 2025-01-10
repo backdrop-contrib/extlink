@@ -36,6 +36,7 @@ function extlink_menu() {
  * Implements hook_preprocess_page().
  */
 function extlink_preprocess_page(&$variables) {
+  backdrop_add_library('extlink', 'extlink');
   $config = config('extlink.settings');
   backdrop_add_js(array('extlink' => array(
     'extTarget' => $config->get('target'),
@@ -60,6 +61,30 @@ function extlink_preprocess_page(&$variables) {
     'mailtoClass' => $config->get('mailto_class'),
     'mailtoLabel' => check_plain(t($config->get('mailto_label'))),
   )), 'setting');
+}
+
+/**
+ * Implements hook_library_info().
+ */
+function extlink_library_info() {
+  $module_info = system_get_info('module', 'extlink');
+  $path = backdrop_get_path('module', 'extlink');
+  $libraries['extlink'] = array(
+    'title' => 'External Links',
+    'website' => 'https://backdropcms.org/project/extlink',
+    'version' => $module_info['version'],
+    'js' => array(
+      $path . '/js/extlink.js' => array(),
+    ),
+    'css' => array(
+      $path . '/css/extlink.css' => array(),
+    ),
+    'icons' => array(
+      'arrow-up-right',
+      'envelope',
+    ),
+  );
+  return $libraries;
 }
 
 /**
